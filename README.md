@@ -1,6 +1,6 @@
 ## Instructions
 
-#### Running Locally
+> Running Locally
 
 **NOTE:** You need "npm" installed on your computer to view this project
 
@@ -15,7 +15,7 @@ And then run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-#### Github
+> Github
 
 Github Link: https://github.com/ssmkhrj/BookMart
 
@@ -64,6 +64,7 @@ And the badge over the cart button on the navbar displays the total no. of items
 To keep the table layout consistent the content of columns “title” and “authors” get stripped after a certain length. So, to get the full description of the book the user can navigate to the particular book page (by clicking on that book row).
 
 ![Cart](./src/readme-images/Book_Description.png)
+
 The cart page lists all the items in the cart along with their quantities.
 
 Users can change the quantity for a particular item by using the increment decrement buttons. If the quantity is dropped to zero the item disappears from the cart.
