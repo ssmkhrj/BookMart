@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+## Instructions
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Running locally
 
-## Available Scripts
+**NOTE:** You need "npm" installed on your computer to view this project
 
-In the project directory, you can run:
+In the project directory _(BookList)_, run:
+
+### `npm install`
+
+And then run:
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Github
 
-### `npm test`
+Github Link: https://github.com/ssmkhrj/BookMart
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Hosted Link: https://bookmart.netlify.app/
 
-### `npm run build`
+## Screenshots with description
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+By default 5 columns (BookID, Title, Authors, Rating, Price) are shown.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Cart](./src/readme-images/Home.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Users can also manually select other columns by clicking on the settings button on the navbar and checking the columns that they want to see.
+_NOTE: Columns like BookID, Title, Price cannot be unselected so they are not present in the settings menu._
 
-### `npm run eject`
+![Cart](./src/readme-images/Settings.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Image showing table with all columns selected.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Cart](./src/readme-images/All_Columns.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Users can search for their favourite books using the search bar.
+Image below shows a search of all “Mythology” books.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Cart](./src/readme-images/Search_Mythology_Books.png)
 
-## Learn More
+Users can sort the books by their Rating, Price, Number of ratings and Author’s name (in both ascending and descending order).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Cart](./src/readme-images/Sorted_By_Price_Desc.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Users can search for some keyword and then sort only the filtered results.
+Image below shows all the books containing the term “harry” sorted by their “price”.
 
-### Code Splitting
+![Cart](./src/readme-images/Search_and_Sort.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Users can add their favourite books to the cart by clicking on the cart button on the corresponding row.
+Users can navigate to the cart page by clicking on the cart button present on the navbar.
+Badge over the cart button displays the quantity of the corresponding item present in the cart.
+And the badge over the cart button on the navbar displays the total no. of items present in the cart.
 
-### Analyzing the Bundle Size
+![Cart](./src/readme-images/Badges.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To keep the table layout consistent the content of columns “title” and “authors” get stripped after a certain length. So, to get the full description of the book the user can navigate to the particular book page (by clicking on that book row).
 
-### Making a Progressive Web App
+![Cart](./src/readme-images/Book_Description.png)
+The cart page lists all the items in the cart along with their quantities.
+Users can change the quantity for a particular item by using the increment decrement buttons. If the quantity is dropped to zero the item disappears from the cart.
+Users can also remove items from the cart by clicking on the cross button.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Cart](./src/readme-images/Cart.png)
 
-### Advanced Configuration
+When the cart is empty the user gets a message saying that the cart is empty.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Cart](./src/readme-images/Empty_Cart.png)
