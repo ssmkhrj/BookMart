@@ -17,7 +17,7 @@ import readBookLogo from "./readBook.svg";
 
 const styles = {
   root: {
-    marginTop: 30,
+    marginTop: 80,
     marginBottom: 10,
     display: "flex",
     justifyContent: "center",

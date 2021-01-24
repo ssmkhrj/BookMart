@@ -13,6 +13,9 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 
 const styles = {
+  root: {
+    marginTop: 50,
+  },
   rowCell: {
     fontFamily: "'Source Sans Pro', sans-serif",
     color: "#777",
@@ -21,22 +24,58 @@ const styles = {
     fontWeight: 700,
   },
   qtyBtn: {
+    textTransform: "capitalize",
     "&:disabled": {
-      border: "1px solid rgba(0, 0, 0, 0.23)",
+      border: "1px solid #5986e677",
       borderRightColor: "transparent",
-      color: "rgba(0, 0, 0, 0.87)",
+      color: "#5986e6",
+      fontWeight: 600,
     },
   },
-  btnGroup: {
+  increBtn: {
+    border: "1px solid #5986e677",
+    color: "#5986e6",
+    "&:hover": {
+      background: "#5986e622",
+    },
+  },
+  decreBtn: {
+    border: "1px solid #5986e677",
+    color: "#5986e6",
+    "&:hover": {
+      background: "#5986e622",
+    },
+    "&:disabled": {
+      border: "1px solid #5986e633",
+      borderRightColor: "transparent",
+      color: "#5986e633",
+      fontWeight: 600,
+    },
+  },
+  btnContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
     marginTop: 20,
+  },
+  backBtn: {
+    fontFamily: "'Source Sans Pro', sans-serif",
+    color: "white",
+    background: "#5986e6",
+    "&:hover": {
+      background: "#5986e699",
+    },
   },
 };
 
 class Book extends Component {
+  goBack() {
+    this.props.history.push("/");
+  }
   render() {
     const { book, columns, changeQty, classes } = this.props;
     return (
-      <Container>
+      <Container className={classes.root}>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
             <TableBody>
@@ -55,28 +94,37 @@ class Book extends Component {
             </TableBody>
           </Table>
         </TableContainer>
-        <ButtonGroup
-          className={classes.btnGroup}
-          size="small"
-          aria-label="small outlined button group"
-        >
-          <Button
-            className={classes.decreBtn}
-            onClick={() => changeQty(book.bookID, -1)}
-            disabled={book.qty <= 0}
+        <div className={classes.btnContainer}>
+          <ButtonGroup
+            className={classes.btnGroup}
+            size="small"
+            aria-label="change-quantity-button"
           >
-            <ArrowDropDownIcon fontSize="small" />
-          </Button>
-          <Button disabled className={classes.qtyBtn}>
-            {book.qty}
-          </Button>
+            <Button
+              className={classes.decreBtn}
+              onClick={() => changeQty(book.bookID, -1)}
+              disabled={book.qty <= 0}
+            >
+              <ArrowDropDownIcon fontSize="small" />
+            </Button>
+            <Button disabled className={classes.qtyBtn}>
+              Quantity: {book.qty}
+            </Button>
+            <Button
+              className={classes.increBtn}
+              onClick={() => changeQty(book.bookID, 1)}
+            >
+              <ArrowDropUpIcon fontSize="small" />
+            </Button>
+          </ButtonGroup>
           <Button
-            className={classes.increBtn}
-            onClick={() => changeQty(book.bookID, 1)}
+            variant="contained"
+            className={classes.backBtn}
+            onClick={() => this.goBack()}
           >
-            <ArrowDropUpIcon fontSize="small" />
+            Back
           </Button>
-        </ButtonGroup>
+        </div>
       </Container>
     );
   }

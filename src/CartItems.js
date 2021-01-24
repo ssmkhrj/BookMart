@@ -26,6 +26,7 @@ const styles = {
     borderTopRightRadius: "50%",
     borderBottomRightRadius: "50%",
     border: "1px solid #5986e677",
+    color: "#5986e6",
     "&:hover": {
       background: "#5986e622",
     },
@@ -34,6 +35,7 @@ const styles = {
     borderTopLeftRadius: "50%",
     borderBottomLeftRadius: "50%",
     border: "1px solid #5986e677",
+    color: "#5986e6",
     "&:hover": {
       background: "#5986e622",
     },
@@ -145,10 +147,7 @@ class CartItems extends Component {
                         className={classes.decreBtn}
                         onClick={() => changeQty(c.bookID, -1)}
                       >
-                        <ArrowDropDownIcon
-                          fontSize="small"
-                          style={{ color: "#5986e6" }}
-                        />
+                        <ArrowDropDownIcon fontSize="small" />
                       </Button>
                       <Button disabled className={classes.qtyBtn}>
                         {c.qty}
@@ -157,10 +156,7 @@ class CartItems extends Component {
                         className={classes.increBtn}
                         onClick={() => changeQty(c.bookID, 1)}
                       >
-                        <ArrowDropUpIcon
-                          fontSize="small"
-                          style={{ color: "#5986e6" }}
-                        />
+                        <ArrowDropUpIcon fontSize="small" />
                       </Button>
                     </ButtonGroup>
                   </TableCell>
