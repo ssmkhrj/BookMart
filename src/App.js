@@ -9,6 +9,7 @@ import Book from "./Book";
 const styles = {
   root: {
     minHeight: "100vh",
+    paddingBottom: 30,
     position: "relative",
     "& h1": {
       margin: 0,
@@ -18,11 +19,13 @@ const styles = {
   },
   footer: {
     fontFamily: '"Source Sans Pro", sans-serif',
-    background: "whitesmoke",
+    background: "#615e76",
+    color: "whitesmoke",
     textAlign: "center",
     padding: "5px 0",
     fontSize: "0.8rem",
     position: "absolute",
+    top: "auto",
     bottom: 0,
     right: 0,
     left: 0,
@@ -151,6 +154,7 @@ class App extends Component {
       }
       data[i]["qty"] = 0;
     }
+
     this.setState({
       books: data,
       isLoading: false,

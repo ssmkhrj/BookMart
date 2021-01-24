@@ -13,10 +13,12 @@ import { withStyles } from "@material-ui/styles";
 
 const styles = {
   root: {
-    marginBottom: 100,
+    background: "#6295ff33",
+  },
+  btn: {
+    color: "#67647e",
   },
   navbar: {
-    background: "whitesmoke",
     justifyContent: "space-between",
   },
 };
@@ -48,15 +50,38 @@ class Navbar extends Component {
     return (
       <AppBar position="static" className={classes.root}>
         <Toolbar className={classes.navbar}>
-          <Button onClick={this.goHome}>
+          <Button
+            onClick={this.goHome}
+            className={classes.btn}
+            style={{
+              borderRadius: "none",
+              fontSize: "1.1rem",
+              fontWeight: 700,
+              color: "#67647e",
+            }}
+          >
             B<CollectionsBookmarkTwoToneIcon />
-            OK
+            okMart
           </Button>
+          {/* <IconButton
+            aria-label="home"
+            onClick={this.goHome}
+            className={classes.btn}
+            style={{
+              borderRadius: "none",
+              fontSize: "1.1rem",
+              fontWeight: 700,
+            }}
+          >
+            B<CollectionsBookmarkTwoToneIcon fontSize="small" />
+            okMart
+          </IconButton> */}
           <div>
             {location.pathname === "/" && (
               <Tooltip title="Settings">
                 <IconButton
                   aria-label="settings"
+                  className={classes.btn}
                   onClick={this.handleSettingsClick}
                 >
                   <SettingsTwoToneIcon />
@@ -72,6 +97,7 @@ class Navbar extends Component {
             <Tooltip title="Shopping Cart">
               <IconButton
                 aria-label="shopping cart"
+                className={classes.btn}
                 onClick={this.handleCartClick}
               >
                 <Badge

@@ -8,13 +8,24 @@ import Badge from "@material-ui/core/Badge";
 import StarRating from "./StarRating";
 
 const styles = {
+  root: {
+    "&:hover": {
+      background: "#5986e611 !important",
+    },
+  },
+  cartBtn: {
+    color: "#5986e6",
+    "&:hover": {
+      background: "#5986e633",
+      color: "#3f51b5",
+    },
+  },
   rowCell: {
     fontFamily: "'Source Sans Pro', sans-serif",
     padding: 0,
     fontSize: "0.75rem",
     fontWeight: 600,
-    color: "rgba(0,0,0,0.6)",
-    // backgroundColor: (props) => (props.isEven ? "#eceff1" : "white"),
+    color: "rgba(0,0,0,0.8)",
     "&:hover": {
       cursor: "pointer",
     },
@@ -47,7 +58,7 @@ class BookRow extends Component {
     const { data, columns, classes } = this.props;
     const processedData = this.processData(data);
     return (
-      <TableRow hover onClick={this.goToBook}>
+      <TableRow hover onClick={this.goToBook} className={classes.root}>
         {columns.map(
           (col, index) =>
             col.show && (
@@ -70,7 +81,11 @@ class BookRow extends Component {
             )
         )}
         <TableCell className={classes.rowCell} align="center">
-          <IconButton aria-label="add-to-cart" onClick={this.handleCartClick}>
+          <IconButton
+            aria-label="add-to-cart"
+            onClick={this.handleCartClick}
+            className={classes.cartBtn}
+          >
             <Badge badgeContent={processedData.qty} color="primary">
               <AddShoppingCartIcon fontSize="small" />
             </Badge>

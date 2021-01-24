@@ -11,11 +11,14 @@ import TableSortLabel from "@material-ui/core/TableSortLabel";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
+import Skeleton from "@material-ui/lab/Skeleton";
 import BookRow from "./BookRow";
+import readBookLogo from "./readBook.svg";
 
 const styles = {
   root: {
-    marginTop: "-50px",
+    marginTop: 30,
+    marginBottom: 10,
     display: "flex",
     justifyContent: "center",
     width: "100%",
@@ -40,7 +43,7 @@ const styles = {
     fontSize: "0.7rem",
     textTransform: "uppercase",
     "& span": {
-      backgroundColor: "#eceff1",
+      backgroundColor: "#6295ff22",
       margin: "0 3px",
       display: "flex",
       alignItems: "center",
@@ -51,12 +54,12 @@ const styles = {
   tableFooter: {
     "& p": {
       fontFamily: "'Source Sans Pro', sans-serif",
-      color: "rgba(0,0,0,0.6)",
+      color: "rgba(0,0,0,0.7)",
       fontSize: "0.9rem",
       fontWeight: 400,
     },
     "& button": {
-      color: "rgba(0,0,0,0.6)",
+      color: "rgba(0,0,0,0.7)",
     },
   },
   bookID: {
@@ -155,6 +158,21 @@ class BookList extends Component {
       page: 0,
     });
   }
+  showSkeleton() {
+    return (
+      <>
+        {Array.from({ length: 10 }, (r, i) => (
+          <TableRow key={i}>
+            {Array.from({ length: 6 }, (c, j) => (
+              <TableCell key={6 * i + j}>
+                <Skeleton variant="rect" height={11} />
+              </TableCell>
+            ))}
+          </TableRow>
+        ))}
+      </>
+    );
+  }
   render() {
     const {
       books,
@@ -164,6 +182,7 @@ class BookList extends Component {
       sortDir,
       changeQty,
       history,
+      isLoading,
       classes,
     } = this.props;
     const { page, searchText } = this.state;
@@ -174,6 +193,17 @@ class BookList extends Component {
     return (
       <div className={classes.root}>
         <div className={classes.container}>
+          <img
+            src={readBookLogo}
+            alt=" "
+            style={{
+              position: "absolute",
+              opacity: 0.3,
+              height: 250,
+              bottom: 0,
+              right: 0,
+            }}
+          />
           <TextField
             placeholder="Search Books"
             name="searchText"
@@ -224,18 +254,23 @@ class BookList extends Component {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {searchedBooks
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((book, index) => (
-                    <BookRow
-                      key={book.bookID}
-                      data={book}
-                      columns={columns}
-                      isEven={index % 2 === 0}
-                      changeQty={changeQty}
-                      history={history}
-                    />
-                  ))}
+                {isLoading
+                  ? this.showSkeleton()
+                  : searchedBooks
+                      .slice(
+                        page * rowsPerPage,
+                        page * rowsPerPage + rowsPerPage
+                      )
+                      .map((book, index) => (
+                        <BookRow
+                          key={book.bookID}
+                          data={book}
+                          columns={columns}
+                          isEven={index % 2 === 0}
+                          changeQty={changeQty}
+                          history={history}
+                        />
+                      ))}
               </TableBody>
             </Table>
           </TableContainer>

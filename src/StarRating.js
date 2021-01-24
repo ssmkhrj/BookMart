@@ -8,7 +8,7 @@ const styles = {
   star: {
     width: 18,
     height: 18,
-    color: "rgba(0, 0, 0, 0.5)",
+    color: "#5986e6",
   },
 };
 

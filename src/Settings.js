@@ -19,13 +19,22 @@ const styles = {
   formField: {
     "& span": {
       fontFamily: '"Source Sans Pro", sans-serif',
-      color: "#444",
+      color: "#555",
+    },
+    "& svg": {
+      color: "#5986e6",
     },
   },
   formLabel: {
     fontFamily: '"Source Sans Pro", sans-serif',
     fontSize: "0.8rem",
     color: "#777",
+  },
+  doneBtn: {
+    color: "#5986e6",
+    "&:hover": {
+      background: "#5986e622",
+    },
   },
 };
 
@@ -36,7 +45,7 @@ class Settings extends Component {
   render() {
     const { columns, isOpen, closeDialog, classes } = this.props;
     return (
-      <Dialog open={isOpen} onClose={closeDialog} className={classes.root}>
+      <Dialog open={isOpen} onClose={closeDialog}>
         <DialogTitle className={classes.title}>Settings</DialogTitle>
         <DialogContent>
           <FormControl component="fieldset">
@@ -53,7 +62,6 @@ class Settings extends Component {
                         <Checkbox
                           checked={col.show}
                           name={col.id}
-                          color="primary"
                           onChange={this.handleChange}
                         />
                       }
@@ -66,7 +74,7 @@ class Settings extends Component {
           </FormControl>
         </DialogContent>
         <DialogActions>
-          <Button color="primary" onClick={closeDialog}>
+          <Button className={classes.doneBtn} onClick={closeDialog}>
             Done
           </Button>
         </DialogActions>
