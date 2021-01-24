@@ -83,7 +83,7 @@ class App extends Component {
           align: "center",
           show: false,
           toSort: false,
-          colWidth: 120,
+          colWidth: 110,
           inSettings: true,
         },
         {
@@ -92,7 +92,7 @@ class App extends Component {
           align: "center",
           show: false,
           toSort: false,
-          colWidth: 150,
+          colWidth: 140,
           inSettings: true,
         },
         {
