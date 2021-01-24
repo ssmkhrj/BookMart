@@ -24,31 +24,31 @@ Hosted Link: https://bookmart.netlify.app/
 
 By default 5 columns (BookID, Title, Authors, Rating, Price) are shown.
 
-![Cart](./src/readme-images/Home.png)
+![Home](./src/readme-images/Home.png)
 
 Users can also manually select other columns by clicking on the settings button on the navbar and checking the columns that they want to see.
 
 _NOTE: Columns like BookID, Title, Price cannot be unselected so they are not present in the settings menu._
 
-![Cart](./src/readme-images/Settings.png)
+![Settings](./src/readme-images/Settings.png)
 
 Image showing table with all columns selected.
 
-![Cart](./src/readme-images/All_Columns.png)
+![All Columns](./src/readme-images/All_Columns.png)
 
 Users can search for their favourite books using the search bar.
 Image below shows a search of all “Mythology” books.
 
-![Cart](./src/readme-images/Search_Mythology_Books.png)
+![Search Mythology Books](./src/readme-images/Search_Mythology_Books.png)
 
 Users can sort the books by their Rating, Price, Number of ratings and Author’s name (in both ascending and descending order).
 
-![Cart](./src/readme-images/Sorted_By_Price_Desc.png)
+![Sorted By Price Desc](./src/readme-images/Sorted_By_Price_Desc.png)
 
 Users can search for some keyword and then sort only the filtered results.
 Image below shows all the books containing the term “harry” sorted by their “price”.
 
-![Cart](./src/readme-images/Search_and_Sort.png)
+![Search And Sort](./src/readme-images/Search_And_Sort.png)
 
 Users can add their favourite books to the cart by clicking on the cart button on the corresponding row.
 
@@ -58,11 +58,11 @@ Badge over the cart button displays the quantity of the corresponding item prese
 
 And the badge over the cart button on the navbar displays the total no. of items present in the cart.
 
-![Cart](./src/readme-images/Badges.png)
+![Badges](./src/readme-images/Badges.png)
 
 To keep the table layout consistent the content of columns “title” and “authors” get stripped after a certain length. So, to get the full description of the book the user can navigate to the particular book page (by clicking on that book row).
 
-![Cart](./src/readme-images/Book_Description.png)
+![Book Description](./src/readme-images/Book_Description.png)
 
 The cart page lists all the items in the cart along with their quantities.
 
@@ -74,4 +74,4 @@ Users can also remove items from the cart by clicking on the cross button.
 
 When the cart is empty the user gets a message saying that the cart is empty.
 
-![Cart](./src/readme-images/Empty_Cart.png)
+![Empty Cart](./src/readme-images/Empty_Cart.png)
