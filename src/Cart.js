@@ -70,6 +70,7 @@ class Cart extends Component {
                 height: 300,
                 bottom: 30,
                 right: 50,
+                zIndex: -1,
               }}
             />
           </Grid>
@@ -92,6 +93,7 @@ class Cart extends Component {
                 height: 350,
                 bottom: 30,
                 right: 0,
+                zIndex: -1,
               }}
             />
           </div>

@@ -202,6 +202,7 @@ class BookList extends Component {
               height: 250,
               bottom: 0,
               right: 0,
+              zIndex: -1,
             }}
           />
           <TextField

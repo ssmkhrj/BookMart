@@ -5,6 +5,12 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
 import { withStyles } from "@material-ui/styles";
 
 const styles = {
@@ -31,13 +37,62 @@ const styles = {
     fontSize: "0.8rem",
     fontWeight: 600,
   },
+  checkoutBtn: {
+    width: "100%",
+    marginTop: 20,
+    fontFamily: "'Source Sans Pro', sans-serif",
+    color: "white",
+    background: "#5986e6",
+    "&:hover": {
+      background: "#5986e699",
+    },
+  },
+  modalBtn: {
+    fontFamily: "'Source Sans Pro', sans-serif",
+    color: "#5986e6",
+    "&:hover": {
+      background: "#5986e633",
+    },
+  },
 };
 
 class CartTotal extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isOpen: false,
+    };
+    this.toggleModal = this.toggleModal.bind(this);
+  }
+  toggleModal(st) {
+    this.setState({
+      isOpen: st,
+    });
+  }
   render() {
     const { totalPrice, classes } = this.props;
+    const { isOpen } = this.state;
     return (
       <TableContainer>
+        <Dialog
+          open={isOpen}
+          onClose={() => this.toggleModal(false)}
+          aria-labelledby="alert-dialog-checkout"
+        >
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Checkout functionality is not yet available.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button
+              className={classes.modalBtn}
+              onClick={() => this.toggleModal(false)}
+            >
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -95,6 +150,13 @@ class CartTotal extends Component {
             </TableRow>
           </TableBody>
         </Table>
+        <Button
+          variant="contained"
+          onClick={() => this.toggleModal(true)}
+          className={classes.checkoutBtn}
+        >
+          Checkout
+        </Button>
       </TableContainer>
     );
   }

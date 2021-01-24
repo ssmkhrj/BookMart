@@ -75,57 +75,61 @@ class Book extends Component {
   render() {
     const { book, columns, changeQty, classes } = this.props;
     return (
-      <Container className={classes.root}>
-        <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="simple table">
-            <TableBody>
-              {columns.map((c) => (
-                <TableRow key={c.id}>
-                  <TableCell
-                    className={`${classes.rowCell} ${classes.rowTitle}`}
-                  >
-                    {c.heading}
-                  </TableCell>
-                  <TableCell className={classes.rowCell}>
-                    {book[c.id]}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <div className={classes.btnContainer}>
-          <ButtonGroup
-            className={classes.btnGroup}
-            size="small"
-            aria-label="change-quantity-button"
-          >
-            <Button
-              className={classes.decreBtn}
-              onClick={() => changeQty(book.bookID, -1)}
-              disabled={book.qty <= 0}
-            >
-              <ArrowDropDownIcon fontSize="small" />
-            </Button>
-            <Button disabled className={classes.qtyBtn}>
-              Quantity: {book.qty}
-            </Button>
-            <Button
-              className={classes.increBtn}
-              onClick={() => changeQty(book.bookID, 1)}
-            >
-              <ArrowDropUpIcon fontSize="small" />
-            </Button>
-          </ButtonGroup>
-          <Button
-            variant="contained"
-            className={classes.backBtn}
-            onClick={() => this.goBack()}
-          >
-            Back
-          </Button>
-        </div>
-      </Container>
+      <>
+        {book !== undefined && (
+          <Container className={classes.root}>
+            <TableContainer component={Paper}>
+              <Table className={classes.table} aria-label="simple table">
+                <TableBody>
+                  {columns.map((c) => (
+                    <TableRow key={c.id}>
+                      <TableCell
+                        className={`${classes.rowCell} ${classes.rowTitle}`}
+                      >
+                        {c.heading}
+                      </TableCell>
+                      <TableCell className={classes.rowCell}>
+                        {book[c.id]}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+            <div className={classes.btnContainer}>
+              <ButtonGroup
+                className={classes.btnGroup}
+                size="small"
+                aria-label="change-quantity-button"
+              >
+                <Button
+                  className={classes.decreBtn}
+                  onClick={() => changeQty(book.bookID, -1)}
+                  disabled={book.qty <= 0}
+                >
+                  <ArrowDropDownIcon fontSize="small" />
+                </Button>
+                <Button disabled className={classes.qtyBtn}>
+                  Quantity: {book.qty}
+                </Button>
+                <Button
+                  className={classes.increBtn}
+                  onClick={() => changeQty(book.bookID, 1)}
+                >
+                  <ArrowDropUpIcon fontSize="small" />
+                </Button>
+              </ButtonGroup>
+              <Button
+                variant="contained"
+                className={classes.backBtn}
+                onClick={() => this.goBack()}
+              >
+                Back
+              </Button>
+            </div>
+          </Container>
+        )}
+      </>
     );
   }
 }
